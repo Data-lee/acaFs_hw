@@ -37,24 +37,21 @@
 		<type label="SET" length="1" sql="SET" quote=""/>
 		<type label="Bit" length="0" sql="bit" quote=""/>
 	</group>
-</datatypes><table x="200" y="100" name="users">
+</datatypes><table x="199" y="150" name="users">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="name" null="0" autoincrement="0">
-<datatype>CHAR</datatype>
-<default>'NULL'</default></row>
 <row name="email" null="0" autoincrement="0">
-<datatype>CHAR</datatype>
+<datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <row name="password" null="0" autoincrement="0">
-<datatype>CHAR</datatype>
+<datatype>VARCHAR</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="499" y="102" name="bookmarks">
+<table x="503" y="101" name="posts">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -62,30 +59,14 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="link" null="0" autoincrement="0">
-<datatype>CHAR</datatype>
+<row name="content" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
 <default>'NULL'</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="702" y="252" name="bookmark_tag">
-<row name="id" null="1" autoincrement="1">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
-<row name="bookmark_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="bookmarks" row="id" />
-</row>
-<row name="tag_id" null="0" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="tags" row="id" />
-</row>
-<key type="PRIMARY" name="">
-<part>id</part>
-</key>
-</table>
-<table x="404" y="304" name="tags">
+<table x="547" y="333" name="post_user">
 <row name="id" null="0" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -93,9 +74,10 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
-<row name="name" null="0" autoincrement="0">
-<datatype>CHAR</datatype>
-<default>'NULL'</default></row>
+<row name="post_id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="posts" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
